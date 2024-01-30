@@ -120,5 +120,56 @@ print(is_substring("a", "gagnaskipan"))
 print(is_substring("gnask", "gagnaskipan")) 
 print(is_substring("iganpsk", "gagnaskipan")) 
 print(is_substring("gnAsk", "gagnaskipan")) 
-print(is_substring("gnesk", "gagnaskipan")) 
+print(is_substring("gnesk", "gagnaskipan"))  
+
+#Elfish / X-ish
+#   ○ Implement the function x_ish(a_str, x) that answers the following:
+#       ■ Does the string a_str include all letters in the string x?
+#           ● Examples:
+#               ○ x_ish(“gagnaskipan”, “a”) -> True
+#               ○ x_ish(“gagnaskipan”, “gnask”) -> True
+#               ○ x_ish(“gagnaskipan”, “iganpsk”) -> True
+#               ○ x_ish(“gagnaskipan”, “gnAsk”) -> False
+#               ○ x_ish(“gagnaskipan”, “gnesk”) -> False
+#       ■ Use recursion
+#       ■ Hint: Try to first implement the function elf_ish(a_str)
+#           ● Only checks whether a_str includes all letters in the substring
+#             “elf”
+#       ■ There are two recursive/iterative “loops” and it affects the efficiency of the
+#         solution which one is the “outer loop” and which one the “inner loop”.
+#           ● Try to implement both loops with recursion
+#               ○ This solution can look elegant and clean! 
+def x_ish(a_str, x):
+    if not x:
+        return True 
+    if not a_str: 
+        return False
+    if is_substring(x[0], a_str):
+        return x_ish(a_str, x[1:])
+    return False 
+print(x_ish("gagnaskipan", "a")) 
+print(x_ish("gagnaskipan", "gnask")) 
+print(x_ish("gagnaskipan", "iganpsk")) 
+print(x_ish("gagnaskipan", "gnAsk")) 
+print(x_ish("gagnaskipan", "gnesk")) 
+ 
+#Palindrome
+#   ○ Implement the function palindrome that takes a string as a parameter:
+#       ■ Returns True if the string reads exactly the same forwards and
+#         backwards.
+#       ■ Hint: You can make a helper function that takes different parameters
+#           ● One possibility (of many) is a helper that takes two strings
+#   ○ But send the same string into both parameters? 
+def palindrome(a_str):
+    if not a_str:
+        return True 
+    if a_str[0] == a_str[-1]:
+        return palindrome(a_str[1:-1])
+    return False 
+print(palindrome("anna")) 
+print(palindrome("annaa")) 
+print(palindrome("annaaa"))
+
+
+
 
