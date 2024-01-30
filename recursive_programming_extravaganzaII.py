@@ -62,4 +62,63 @@ def remove_duplicates(lst):
         return remove_duplicates(lst[1:])
     else:
         return [lst[0]] + remove_duplicates(lst[1:]) 
-print(remove_duplicates([1,2,3,4,5,6,7,8,9,1,2,3]))
+print(remove_duplicates([1,2,3,4,5,6,7,8,9,1,2,3])) 
+
+def binary_search(arr,low,high,x):
+#○ Implement binary search in an ordered list using recursive programming 
+    if high >= low: 
+        mid = (high + low) // 2 
+
+        if arr[mid] == x: 
+            return mid 
+        elif arr[mid] > x: 
+            return binary_search(arr, low, mid - 1, x) 
+        else: 
+            return binary_search(arr, mid + 1, high, x)  
+    else: 
+        return None 
+
+my_arr = [2, 5, 7, 20, 100, 105, 207] 
+x = 7 
+res = binary_search(my_arr, 0, len(my_arr)-1, x)  
+print(res)
+print(my_arr[res]) 
+
+def prefix(pre, a_str): 
+    if not pre:
+        return True 
+    if not a_str or pre[0] != a_str[0]:
+        return False 
+    return prefix(pre[1:], a_str[1:])
+
+def is_substring(substring, a_str):
+#   ○ Implement the function is_substring(substring, a_str) that answers the
+#     following:
+#           ■ Is the string substring actually a substring in the list a_str?
+#               ● Examples:
+#                   ○ is_substring(“a”, “gagnaskipan”) -> True
+#                   ○ is_substring(“gnask”, “gagnaskipan”) -> True
+#                   ○ is_substring(“iganpsk”, “gagnaskipan”) -> False
+#                   ○ is_substring(“gnAsk”, “gagnaskipan”) -> False
+#                   ○ is_substring(“gnesk”, “gagnaskipan”) -> False
+#           ■ Use recursion
+#           ■ Hint: Try to first implement the function prefix(prefix, a_str)
+#               ● Only checks whether prefix is an exact duplicate of the beginning
+#                 of a_str
+#           ■ There are two recursive/iterative “loops”.
+#               ● Try to implement both loops with recursion
+#                   ○ This solution can look elegant and clean! 
+    if not substring:
+        return True 
+    if not a_str: 
+        return False
+    if prefix(substring, a_str):
+        return True 
+    return is_substring(substring, a_str[1:])
+    
+print(is_substring("a", "gagnaskipan")) 
+print(is_substring("gnask", "gagnaskipan")) 
+print(is_substring("iganpsk", "gagnaskipan")) 
+print(is_substring("gnAsk", "gagnaskipan")) 
+print(is_substring("gnesk", "gagnaskipan")) 
+
