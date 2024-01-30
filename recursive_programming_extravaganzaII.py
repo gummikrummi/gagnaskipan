@@ -38,8 +38,28 @@ def count_instances(lst, val):
         return count_instances(lst[1:],val) 
 print(count_instances([1,2,3,4,5,6,7,8,9], 9))
 
-def are_there_duplicates_in_a_list
+def are_there_duplicates_in_a_list(lst):
 #   ○ Implement a recursive function that checks for duplicate values in a list
 #   ○ Takes a list as a parameter
 #   ○ Returns a boolean value
-#       ■ True if any value in the list appears more than once, otherwise False
+#       ■ True if any value in the list appears more than once, otherwise False 
+    if not lst:
+        return False
+    elif lst[0] in lst[1:]:
+        return True
+    else:
+        return are_there_duplicates_in_a_list(lst[1:]) 
+print(are_there_duplicates_in_a_list([1,2,3,4,5,6,7,8,9]))  
+
+def remove_duplicates(lst):
+#   ○ Implement a recursive function that removes duplicate values in a list
+#   ○ Takes a list as a parameter
+#   ○ Returns another list
+#       ■ List with all the same values, but only one instance of each value 
+    if not lst:
+        return []
+    elif lst[0] in lst[1:]:
+        return remove_duplicates(lst[1:])
+    else:
+        return [lst[0]] + remove_duplicates(lst[1:]) 
+print(remove_duplicates([1,2,3,4,5,6,7,8,9,1,2,3]))
