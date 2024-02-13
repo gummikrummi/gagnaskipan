@@ -17,7 +17,7 @@ class Stack:
 
     def pop(self):
         if self.top is None:
-            raise IndexError("Pop from an empty stack")
+            raise IndexError("Poppa úr tómum stack")
         data = self.top.data
         self.top = self.top.next
         self.size -= 1
