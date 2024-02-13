@@ -1,7 +1,7 @@
 class node:
     def __init__(self, data=None, next=None):
         self.data = data
-        self.next = next 
+        self.next = next  
 
 def add_to_front(self, data):
     new_head = node(data, self) 
@@ -58,6 +58,17 @@ print("Remove from front")
 head = node(1, node(2, node(3))) 
 head = remove_from_front(head) 
 print_list_iterative(head) 
+
+print("Add to end") 
+head = node(1, node(2, node(3))) 
+head = add_to_end(head, 4)
+print_list_iterative(head) 
+
+print("Remove from end") 
+head = node(1, node(2, node(3))) 
+head = remove_from_end(head) 
+print_list_iterative(head) 
+
 
     
 
