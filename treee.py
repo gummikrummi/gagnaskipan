@@ -13,10 +13,10 @@ class BinaryTree:
         self.root = self.populate_tree_recur()
     
     def populate_tree_recur(self): 
-        value = input("Enter the value of the node: ")  
+        value = input("Enter node value: ")  
         if value == "": 
             return None 
-        new_node = BT_node 
+        new_node = BT_node (value)
         new_node.left = self.populate_tree_recur() 
         new_node.right = self.populate_tree_recur() 
         return new_node 
@@ -27,7 +27,7 @@ class BinaryTree:
         self.print_preorder_recur(self.root) 
 
     def print_preorder_recur(self, node): 
-        if node is None: 
+        if node == None: 
             return 
         print(node.data, end=" ")
         self.print_preorder_recur(node.left) 
